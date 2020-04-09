@@ -8,7 +8,7 @@ import com.youngculture.SimpleWebShop.integration.repo.ProductRepository;
 public class DataBaseInitializing implements InitializingBean {
 
 	@Autowired
-	ProductRepository productRepositoryBean;
+	private ProductRepository productRepositoryBean;
 
 	public ProductRepository getProductRepositoryBean() {
 		return productRepositoryBean;

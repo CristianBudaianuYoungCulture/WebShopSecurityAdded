@@ -27,7 +27,7 @@ import com.youngculture.SimpleWebShop.utility.WebShopUtilityClass;
 public class HomeController {
 
 	@Autowired
-	ProductRepository productRepositoryBean;
+	private ProductRepository productRepositoryBean;
 
 	@RequestMapping(value = "/")
 	public ModelAndView index(HttpServletResponse response) throws IOException {
