@@ -18,7 +18,6 @@
 
 	<bean id="dataBaseInitializing"
 		class="com.youngculture.SimpleWebShop.config.DataBaseInitializing">
-
 	</bean>
 
 	<bean
