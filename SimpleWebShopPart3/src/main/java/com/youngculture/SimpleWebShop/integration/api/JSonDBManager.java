@@ -18,7 +18,7 @@ public class JSonDBManager {
 
 	private ObjectMapper mapper = new ObjectMapper();
 
-	void updateJSonDataBase(String path, List<Entity> entities) {
+	void initilizeJSonDataBase(String path, List<Entity> entities) {
 
 		try {
 			File resultFile = new File(path);

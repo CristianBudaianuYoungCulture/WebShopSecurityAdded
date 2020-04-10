@@ -33,15 +33,15 @@ public class EntityManagerBean implements EntityManager {
 
 		List<Entity> entities = dBObjectsFactory.populateDiamonds();
 		filePath = WebShopConstants.DIAMOND_PATH;
-		jSonDBManager.updateJSonDataBase(filePath, entities);
+		jSonDBManager.initilizeJSonDataBase(filePath, entities);
 
 		entities = dBObjectsFactory.populateCars();
 		filePath = WebShopConstants.CARS_PATH;
-		jSonDBManager.updateJSonDataBase(filePath, entities);
+		jSonDBManager.initilizeJSonDataBase(filePath, entities);
 
 		entities = dBObjectsFactory.populateShoes();
 		filePath = WebShopConstants.SHOES_PATH;
-		jSonDBManager.updateJSonDataBase(filePath, entities);
+		jSonDBManager.initilizeJSonDataBase(filePath, entities);
 
 	}
 
