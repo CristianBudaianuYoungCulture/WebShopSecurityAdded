@@ -18,7 +18,7 @@ public class DataBaseInitializing implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() {
 		System.out.println("Data Base is initialized!");
-		productRepositoryBean.updateDataBase();
+		productRepositoryBean.initializeDataBase();
 
 	}
 

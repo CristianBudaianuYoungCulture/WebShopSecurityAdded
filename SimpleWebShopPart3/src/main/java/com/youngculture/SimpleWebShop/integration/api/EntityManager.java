@@ -11,10 +11,10 @@ public interface EntityManager {
 
 	void updateCartDataBase(CartEntity cartEntity);
 
-	void updateDataBase();
-
-	void emptyCartDataBase(String item);
+	void emptyCartDataBase();
 
 	List<Entity> readCartTable(String category);
+
+	void initializeDataBase();
 
 }

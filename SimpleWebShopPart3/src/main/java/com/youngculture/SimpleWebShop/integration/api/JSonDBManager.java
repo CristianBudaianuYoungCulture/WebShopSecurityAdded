@@ -57,7 +57,7 @@ public class JSonDBManager {
 		Class<? extends Entity[]> type;
 		File file = new File(path);
 
-		if (WebShopConstants.CART_PATH.equals(path) && file.length() == 0) {
+		if (path.contains("cart_Table") && file.length() == 0) {
 			return new ArrayList<Entity>();
 		}
 		if (WebShopConstants.DIAMONDS.equals(category)) {

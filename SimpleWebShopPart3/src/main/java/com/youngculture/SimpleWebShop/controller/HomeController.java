@@ -41,7 +41,7 @@ public class HomeController {
 		List<Entity> items;
 
 		if ("emptycart".equals(item)) {
-			productRepositoryBean.emptyCart(item);
+			productRepositoryBean.emptyCart();
 			items = new ArrayList<>();
 		} else if ("cart".equals(item)) {
 			items = productRepositoryBean.retriveCartProducts(item);

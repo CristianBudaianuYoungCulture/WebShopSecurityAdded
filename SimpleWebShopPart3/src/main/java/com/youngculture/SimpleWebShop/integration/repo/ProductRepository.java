@@ -9,12 +9,12 @@ public interface ProductRepository {
 
 	List<Entity> retriveProducts(String category);
 
-	void updateDataBase();
-
 	void updateCartDataBase(CartEntity cartEntity);
 
 	List<Entity> retriveCartProducts(String category);
 
-	void emptyCart(String item);
+	void emptyCart();
+
+	void initializeDataBase();
 
 }

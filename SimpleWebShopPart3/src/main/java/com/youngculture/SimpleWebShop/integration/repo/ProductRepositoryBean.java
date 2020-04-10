@@ -28,8 +28,8 @@ public class ProductRepositoryBean implements ProductRepository {
 	}
 
 	@Override
-	public void updateDataBase() {
-		entityManagerBean.updateDataBase();
+	public void initializeDataBase() {
+		entityManagerBean.initializeDataBase();
 
 	}
 
@@ -45,8 +45,8 @@ public class ProductRepositoryBean implements ProductRepository {
 	}
 
 	@Override
-	public void emptyCart(String item) {
-		entityManagerBean.emptyCartDataBase(item);
+	public void emptyCart() {
+		entityManagerBean.emptyCartDataBase();
 
 	}
 

@@ -28,7 +28,7 @@ public class EntityManagerBean implements EntityManager {
 	}
 
 	@Override
-	public void updateDataBase() {
+	public void initializeDataBase() {
 		String filePath;
 
 		List<Entity> entities = dBObjectsFactory.populateDiamonds();
@@ -72,7 +72,7 @@ public class EntityManagerBean implements EntityManager {
 			
 			entities = jSonDBManager.readJSonDataBase(category, WebShopConstants.CART_PATH_1 + username + WebShopConstants.CART_PATH_2);
 		} catch (IOException e) {
-			entities = new ArrayList<>();
+			throw new RuntimeException(e);
 		}
 		return entities;
 	}
@@ -98,7 +98,7 @@ public class EntityManagerBean implements EntityManager {
 	}
 
 	@Override
-	public void emptyCartDataBase(String item) {
+	public void emptyCartDataBase() {
 		String username = extractUserName();
 		jSonDBManager.emptyJSonDataBase(WebShopConstants.CART_PATH_1 + username + WebShopConstants.CART_PATH_2);
 
