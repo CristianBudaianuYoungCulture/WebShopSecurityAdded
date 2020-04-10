@@ -14,27 +14,18 @@ import com.youngculture.SimpleWebShop.utility.WebShopConstants;
 
 public class EntityManagerBean implements EntityManager {
 
-	public DBObjectsFactory getdBObjectsFactory() {
-		return dBObjectsFactory;
-	}
-
-	public void setdBObjectsFactory(DBObjectsFactory dBObjectsFactory) {
-		this.dBObjectsFactory = dBObjectsFactory;
-	}
-
-	public JSonDBManager getjSonDBManager() {
-		return jSonDBManager;
-	}
-
-	public void setjSonDBManager(JSonDBManager jSonDBManager) {
-		this.jSonDBManager = jSonDBManager;
-	}
-
 	@Autowired
 	private DBObjectsFactory dBObjectsFactory;
 
 	@Autowired
 	private JSonDBManager jSonDBManager;
+
+	
+	public EntityManagerBean(DBObjectsFactory dBObjectsFactory, JSonDBManager jSonDBManager) {
+		super();
+		this.dBObjectsFactory = dBObjectsFactory;
+		this.jSonDBManager = jSonDBManager;
+	}
 
 	@Override
 	public void updateDataBase() {
@@ -78,7 +69,8 @@ public class EntityManagerBean implements EntityManager {
 		String username = extractUserName();
 		List<Entity> entities;
 		try {
-			entities = jSonDBManager.readJSonDataBase(category, "D:\\" + username + "cart_Table.json");
+			
+			entities = jSonDBManager.readJSonDataBase(category, WebShopConstants.CART_PATH_1 + username + WebShopConstants.CART_PATH_2);
 		} catch (IOException e) {
 			entities = new ArrayList<>();
 		}
@@ -101,14 +93,14 @@ public class EntityManagerBean implements EntityManager {
 	@Override
 	public void updateCartDataBase(CartEntity cartEntity) {
 		String username = extractUserName();
-		jSonDBManager.updateCartDataBase("D:\\" + username + "cart_Table.json", cartEntity);
+		jSonDBManager.updateCartDataBase(WebShopConstants.CART_PATH_1 + username + WebShopConstants.CART_PATH_2, cartEntity);
 
 	}
 
 	@Override
 	public void emptyCartDataBase(String item) {
 		String username = extractUserName();
-		jSonDBManager.emptyJSonDataBase("D:\\" + username + "cart_Table.json");
+		jSonDBManager.emptyJSonDataBase(WebShopConstants.CART_PATH_1 + username + WebShopConstants.CART_PATH_2);
 
 	}
 

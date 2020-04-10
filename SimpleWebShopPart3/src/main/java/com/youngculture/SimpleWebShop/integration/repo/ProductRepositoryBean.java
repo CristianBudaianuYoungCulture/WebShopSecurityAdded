@@ -16,6 +16,11 @@ public class ProductRepositoryBean implements ProductRepository {
 	@Autowired
 	private EntityManager entityManagerBean;
 
+	public ProductRepositoryBean(EntityManager entityManagerBean) {
+		super();
+		this.entityManagerBean = entityManagerBean;
+	}
+
 	@Override
 	@Cacheable("products")
 	public List<Entity> retriveProducts(String category) {
@@ -45,11 +50,5 @@ public class ProductRepositoryBean implements ProductRepository {
 
 	}
 
-	public EntityManager getEntityManagerBean() {
-		return entityManagerBean;
-	}
-
-	public void setEntityManagerBean(EntityManager entityManagerBean) {
-		this.entityManagerBean = entityManagerBean;
-	}
+	
 }

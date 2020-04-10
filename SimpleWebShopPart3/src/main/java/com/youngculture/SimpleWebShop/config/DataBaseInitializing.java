@@ -10,11 +10,8 @@ public class DataBaseInitializing implements InitializingBean {
 	@Autowired
 	private ProductRepository productRepositoryBean;
 
-	public ProductRepository getProductRepositoryBean() {
-		return productRepositoryBean;
-	}
-
-	public void setProductRepositoryBean(ProductRepository productRepositoryBean) {
+	public DataBaseInitializing(ProductRepository productRepositoryBean) {
+		super();
 		this.productRepositoryBean = productRepositoryBean;
 	}
 

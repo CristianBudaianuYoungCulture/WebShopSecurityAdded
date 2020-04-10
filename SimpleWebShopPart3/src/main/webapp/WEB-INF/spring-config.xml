@@ -11,14 +11,11 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<mvc:annotation-driven />
+	
 	<context:component-scan
 		base-package="com.youngculture.SimpleWebShop" />
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
-
-	<bean id="dataBaseInitializing"
-		class="com.youngculture.SimpleWebShop.config.DataBaseInitializing">
-	</bean>
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,14 +23,15 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="dataBaseInitializing"
+		class="com.youngculture.SimpleWebShop.config.DataBaseInitializing">
+		 <constructor-arg ref="productRepositoryBean"/>
+	</bean>
+
 	<bean id="entityManagerBean"
 		class="com.youngculture.SimpleWebShop.integration.api.EntityManagerBean">
-		<property name="dBObjectsFactory">
-			<ref bean="dBObjectsFactory" />
-		</property>
-		<property name="jSonDBManager">
-			<ref bean="jSonDBManager" />
-		</property>
+		 <constructor-arg ref="dBObjectsFactory"/>
+		  <constructor-arg ref="jSonDBManager"/>
 	</bean>
 
 	<bean id="dBObjectsFactory"
@@ -46,8 +44,6 @@
 
 	<bean id="productRepositoryBean"
 		class="com.youngculture.SimpleWebShop.integration.repo.ProductRepositoryBean">
-		<property name="entityManagerBean">
-			<ref bean="entityManagerBean" />
-		</property>
+		 <constructor-arg ref="entityManagerBean"/>
 	</bean>
 </beans>		
